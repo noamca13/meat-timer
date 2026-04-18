@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<!-- PWA / iOS home screen -->
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="apple-mobile-web-app-title" content="בשר-חלב"/>
+<meta name="theme-color" content="#6b4220"/>
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0iIzZiNDIyMCIvPjxyYWRpYWxHcmFkaWVudCBpZD0iZyIgY3g9IjUwJSIgY3k9IjMwJSIgcj0iNTUlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYzk5NDJhIiBzdG9wLW9wYWNpdHk9IjAuMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzZiNDIyMCIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCUyM2cpIi8+PHBvbHlnb24gcG9pbnRzPSIyNTYsODggMzk1LDMyOCAxMTcsMzI4IiBmaWxsPSJub25lIiBzdHJva2U9IiNjOTk0MmEiIHN0cm9rZS13aWR0aD0iMTgiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cG9seWdvbiBwb2ludHM9IjI1Niw0MDggMTE3LDE2OCAzOTUsMTY4IiBmaWxsPSJub25lIiBzdHJva2U9IiNjOTk0MmEiIHN0cm9rZS13aWR0aD0iMTgiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4K"/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0iIzZiNDIyMCIvPjxyYWRpYWxHcmFkaWVudCBpZD0iZyIgY3g9IjUwJSIgY3k9IjMwJSIgcj0iNTUlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYzk5NDJhIiBzdG9wLW9wYWNpdHk9IjAuMiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzZiNDIyMCIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjExMCIgZmlsbD0idXJsKCUyM2cpIi8+PHBvbHlnb24gcG9pbnRzPSIyNTYsODggMzk1LDMyOCAxMTcsMzI4IiBmaWxsPSJub25lIiBzdHJva2U9IiNjOTk0MmEiIHN0cm9rZS13aWR0aD0iMTgiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cG9seWdvbiBwb2ludHM9IjI1Niw0MDggMTE3LDE2OCAzOTUsMTY4IiBmaWxsPSJub25lIiBzdHJva2U9IiNjOTk0MmEiIHN0cm9rZS13aWR0aD0iMTgiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48L3N2Zz4K"/>
+<title>המתנת בשר - חלב</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Heebo:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:       #6b4220;
+    --card:     #4e2e10;
+    --text1:    #f8edcf;
+    --text2:    #d4a86a;
+    --gold:     #c9942a;
+    --goldf:    rgba(201,148,42,0.38);
+    --red:      #b04040;
+    --shadow:   rgba(0,0,0,0.35);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { min-height: 100%; overscroll-behavior: none; }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--bg);
+    color: var(--text1);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    user-select: none;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(220,170,70,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.2) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .app {
+    position: relative; z-index: 1;
+    min-height: 100vh; min-height: 100dvh;
+    display: flex; flex-direction: column;
+    padding: 28px 22px 20px;
+    padding-top: max(32px, env(safe-area-inset-top));
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+
+  /* HEADER */
+  .header { text-align: center; padding-bottom: 6px; }
+
+  .magen-wrap {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; margin-bottom: 14px;
+  }
+  .magen-wrap .hline {
+    flex: 0 0 40px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .magen-wrap svg { width: 32px; height: 32px; color: var(--gold); }
+
+  .title {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 30px; font-weight: 500;
+    color: var(--text1);
+    letter-spacing: 0.02em; line-height: 1.15;
+  }
+  .subtitle {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 14px; font-weight: 300;
+    color: var(--text2); margin-top: 5px; letter-spacing: 0.07em;
+  }
+
+  /* SCREENS */
+  .screen {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    animation: fadeUp 0.35s ease;
+  }
+  .screen.hidden { display: none; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* HOME */
+  .home-prompt {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 22px; color: var(--text1);
+    margin-bottom: 32px; letter-spacing: 0.02em;
+  }
+  .buttons { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 340px; }
+
+  .btn {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--goldf);
+    border-radius: 18px; padding: 22px 26px;
+    cursor: pointer;
+    box-shadow: 0 3px 16px var(--shadow);
+    transition: transform 0.16s ease, box-shadow 0.16s ease;
+    overflow: hidden;
+  }
+  .btn::after {
+    content: ''; position: absolute;
+    top: 0; left: 18px; right: 18px; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  }
+  .btn:active { transform: scale(0.97); box-shadow: 0 1px 6px var(--shadow); }
+
+  .btn-content { display: flex; align-items: center; justify-content: center; gap: 16px; }
+  .btn-icon { font-size: 34px; line-height: 1; }
+  .btn-text { display: flex; flex-direction: column; align-items: flex-start; }
+  .btn-label {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 23px; font-weight: 500; color: var(--text1); line-height: 1.2;
+  }
+  .btn-hours {
+    font-family: 'Heebo', sans-serif;
+    font-size: 12px; color: var(--text2); letter-spacing: 0.07em; margin-top: 3px;
+  }
+
+  /* TIMER */
+  .timer-label {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 15px; color: var(--text2);
+    letter-spacing: 0.08em; margin-bottom: 14px; text-align: center;
+  }
+  .timer-label .meat-type { color: var(--text1); font-weight: 500; }
+
+  .countdown-frame {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--goldf);
+    border-radius: 22px; padding: 30px 44px 26px; margin-bottom: 16px;
+    box-shadow: 0 4px 22px var(--shadow);
+  }
+  .countdown-frame::before {
+    content: ''; position: absolute; inset: 8px;
+    border: 1px solid rgba(201,148,42,0.2);
+    border-radius: 15px; pointer-events: none;
+  }
+
+  .countdown {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 62px; font-weight: 400; color: var(--text1);
+    letter-spacing: 0.06em; text-align: center;
+    direction: ltr; font-variant-numeric: tabular-nums; line-height: 1;
+  }
+  .countdown-units { display: flex; justify-content: center; gap: 40px; margin-top: 10px; direction: ltr; }
+  .countdown-unit { font-family: 'Heebo', sans-serif; font-size: 10px; color: var(--text2); letter-spacing: 0.18em; }
+
+  .end-time-card {
+    background: var(--card);
+    border: 1px solid var(--goldf);
+    border-radius: 16px; padding: 13px 28px;
+    text-align: center; margin-bottom: 20px;
+    box-shadow: 0 2px 10px var(--shadow);
+  }
+  .end-time-label { font-family: 'Frank Ruhl Libre', serif; font-size: 13px; color: var(--text2); letter-spacing: 0.05em; }
+  .end-time-value {
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 26px; font-weight: 500; color: var(--text1);
+    direction: ltr; display: inline-block; margin-top: 2px;
+  }
+
+  .progress-wrap { width: 100%; max-width: 300px; margin-bottom: 28px; }
+  .progress-bar { height: 2px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), rgba(201,148,42,0.4));
+    border-radius: 2px; width: 0%;
+  }
+
+  /* TOAST */
+  .toast {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--text1);
+    border: 1px solid var(--text1);
+    border-radius: 14px;
+    padding: 16px 24px;
+    font-family: 'Frank Ruhl Libre', serif;
+    font-size: 15px; color: var(--card);
+    letter-spacing: 0.03em;
+    text-align: center;
+    max-width: 280px;
+    box-shadow: 0 8px 32px var(--shadow);
+    z-index: 200;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+
+  .restart-hint { font-family: 'Frank Ruhl Libre', serif; font-size: 13px; color: var(--text2); letter-spacing: 0.04em; margin-bottom: 10px; }
+  .mini-buttons { display: flex; gap: 10px; width: 100%; max-width: 300px; }
+  .mini-btn {
+    flex: 1; background: var(--card);
+    border: 1px solid var(--goldf); border-radius: 14px;
+    padding: 12px 8px; font-family: 'Frank Ruhl Libre', serif;
+    font-size: 15px; color: var(--text1); cursor: pointer;
+    box-shadow: 0 2px 8px var(--shadow); transition: transform 0.15s ease;
+    letter-spacing: 0.02em;
+  }
+  .mini-btn:active { transform: scale(0.96); }
+  .mini-btn .mini-icon { font-size: 16px; margin-left: 5px; }
+
+  .cancel-section { margin-top: 18px; display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 300px; }
+  .divider { width: 50%; height: 1px; background: linear-gradient(90deg, transparent, var(--goldf), transparent); margin-bottom: 12px; }
+  .cancel-btn {
+    background: transparent; border: none; color: var(--text2);
+    font-family: 'Frank Ruhl Libre', serif; font-size: 14px;
+    letter-spacing: 0.05em; cursor: pointer;
+    display: flex; align-items: center; gap: 7px;
+    opacity: 0.85; transition: opacity 0.15s ease; padding: 8px 16px;
+  }
+  .cancel-btn:active { opacity: 1; }
+  .cancel-x { font-size: 13px; color: var(--red); }
+
+  /* CONFIRM */
+  .confirm-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 100; padding: 24px; animation: fadeUp 0.2s ease;
+  }
+  .confirm-overlay.hidden { display: none; }
+  .confirm-dialog {
+    background: var(--bg); border: 1px solid var(--goldf);
+    border-radius: 22px; padding: 28px 24px 22px;
+    width: 100%; max-width: 310px; text-align: center;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5); position: relative;
+  }
+  .confirm-dialog::before {
+    content: ''; position: absolute; inset: 7px;
+    border: 1px solid rgba(201,148,42,0.2);
+    border-radius: 16px; pointer-events: none;
+  }
+  .confirm-title { font-family: 'Frank Ruhl Libre', serif; font-size: 21px; font-weight: 500; color: var(--text1); margin-bottom: 8px; }
+  .confirm-message { font-family: 'Frank Ruhl Libre', serif; font-size: 14px; color: var(--text2); margin-bottom: 22px; line-height: 1.55; }
+  .confirm-actions { display: flex; gap: 10px; }
+  .confirm-btn { flex: 1; padding: 12px; border-radius: 12px; font-family: 'Frank Ruhl Libre', serif; font-size: 15px; cursor: pointer; transition: transform 0.15s ease; letter-spacing: 0.03em; }
+  .confirm-btn.keep { background: var(--card); border: 1px solid var(--goldf); color: var(--text1); }
+  .confirm-btn.cancel { background: var(--red); border: 1px solid var(--red); color: var(--text1); }
+  .confirm-btn:active { transform: scale(0.96); }
+
+  /* DONE */
+  .done-screen { text-align: center; }
+  .done-emojis { font-size: 70px; letter-spacing: 10px; margin-bottom: 24px; animation: bob 2.2s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);} }
+  .done-title { font-family: 'Frank Ruhl Libre', serif; font-size: 52px; font-weight: 500; color: var(--text1); margin-bottom: 10px; }
+  .done-subtitle { font-family: 'Frank Ruhl Libre', serif; font-size: 18px; font-weight: 300; font-style: italic; color: var(--text2); margin-bottom: 44px; }
+  .done-actions { width: 100%; max-width: 300px; }
+  .done-btn {
+    background: var(--card); color: var(--text1);
+    border: 1px solid var(--goldf); border-radius: 18px;
+    padding: 16px 20px; font-family: 'Frank Ruhl Libre', serif;
+    font-size: 17px; width: 100%; cursor: pointer;
+    box-shadow: 0 3px 12px var(--shadow); transition: transform 0.15s ease;
+  }
+  .done-btn:active { transform: scale(0.97); }
+
+  .footer { text-align: center; padding: 10px 0 2px; margin-top: 8px; }
+  .footer-text { font-size: 10px; color: var(--text2); letter-spacing: 0.12em; opacity: 0.45; }
+
+  @media (max-height: 700px) {
+    .countdown { font-size: 50px; }
+    .done-title { font-size: 44px; }
+    .done-emojis { font-size: 56px; }
+    .title { font-size: 26px; }
+  }
+  @media (max-width: 340px) {
+    .countdown { font-size: 48px; }
+    .countdown-units { gap: 28px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div class="magen-wrap">
+      <div class="hline"></div>
+      <!-- Perfect Star of David: two equilateral triangles inscribed in circle r=26, center (30,30) -->
+      <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="30.0,4.0 52.5,43.0 7.5,43.0"/>
+        <polygon points="30.0,56.0 7.5,17.0 52.5,17.0"/>
+      </svg>
+      <div class="hline"></div>
+    </div>
+    <h1 class="title">המתנת בשר - חלב</h1>
+    <p class="subtitle">חישוב זמן ההמתנה בקלות</p>
+
+  </div>
+
+  <div id="home-screen" class="screen">
+    <p class="home-prompt">מה אכלת?</p>
+    <div class="buttons">
+      <button class="btn" data-type="chicken">
+        <div class="btn-content">
+          <span class="btn-icon">🍗</span>
+          <div class="btn-text">
+            <span class="btn-label">אכלתי עוף</span>
+            <span class="btn-hours">זמן המתנה: 4 שעות</span>
+          </div>
+        </div>
+      </button>
+      <button class="btn" data-type="beef">
+        <div class="btn-content">
+          <span class="btn-icon">🥩</span>
+          <div class="btn-text">
+            <span class="btn-label">אכלתי בקר</span>
+            <span class="btn-hours">זמן המתנה: 6 שעות</span>
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <div id="timer-screen" class="screen hidden">
+    <p class="timer-label">המתנה לאחר <span class="meat-type" id="meat-type-label"></span></p>
+    <div class="countdown-frame">
+      <div class="countdown" id="countdown">00:00:00</div>
+      <div class="countdown-units">
+        <span class="countdown-unit">שעות</span>
+        <span class="countdown-unit">דקות</span>
+        <span class="countdown-unit">שניות</span>
+      </div>
+    </div>
+    <div class="end-time-card">
+      <div class="end-time-label">אפשר לאכול חלבי ב-</div>
+      <div class="end-time-value" id="end-time">--:--</div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+    <p class="restart-hint">אכלת שוב? התחל מחדש</p>
+    <div class="mini-buttons">
+      <button class="mini-btn" data-type="chicken"><span class="mini-icon">🍗</span>עוף</button>
+      <button class="mini-btn" data-type="beef"><span class="mini-icon">🥩</span>בקר</button>
+    </div>
+    <div class="cancel-section">
+      <div class="divider"></div>
+      <button class="cancel-btn" id="cancel-btn">
+        <span class="cancel-x">✕</span><span>ביטול הספירה</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="done-screen" class="screen hidden">
+    <div class="done-emojis">🧀 🥛</div>
+    <h2 class="done-title">בתיאבון!</h2>
+    <p class="done-subtitle">אפשר לאכול חלבי</p>
+    <div class="done-actions">
+      <button class="done-btn" id="back-home">חזרה למסך הראשי</button>
+    </div>
+  </div>
+
+  <div class="footer"><p class="footer-text">· · ·</p></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="confirm-overlay hidden" id="confirm-overlay">
+  <div class="confirm-dialog">
+    <h3 class="confirm-title">לבטל את הספירה?</h3>
+    <p class="confirm-message">הספירה תתאפס ותחזור למסך הראשי</p>
+    <div class="confirm-actions">
+      <button class="confirm-btn keep" id="confirm-keep">המשך ספירה</button>
+      <button class="confirm-btn cancel" id="confirm-cancel">כן, בטל</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const KEY = 'meatDairyTimer';
+  const DUR = { beef:{hours:6,label:'בקר'}, chicken:{hours:4,label:'עוף'} };
+  const S = {
+    home:  document.getElementById('home-screen'),
+    timer: document.getElementById('timer-screen'),
+    done:  document.getElementById('done-screen')
+  };
+  const E = {
+    cd:    document.getElementById('countdown'),
+    et:    document.getElementById('end-time'),
+    mtl:   document.getElementById('meat-type-label'),
+    pf:    document.getElementById('progress-fill')
+  };
+  let iv = null;
+
+  const save  = (t,s,e) => { try{localStorage.setItem(KEY,JSON.stringify({type:t,startTs:s,endTs:e}));}catch(x){} };
+  const load  = ()      => { try{const d=JSON.parse(localStorage.getItem(KEY)); return(d&&d.type&&d.endTs)?d:null;}catch(x){return null;} };
+  const clear = ()      => { try{localStorage.removeItem(KEY);}catch(x){} };
+  const show  = n       => { Object.values(S).forEach(s=>s.classList.add('hidden')); S[n].classList.remove('hidden'); };
+  const pad   = n       => String(n).padStart(2,'0');
+  const fmtD  = ms      => { if(ms<0)ms=0; const s=Math.floor(ms/1000); return `${pad(Math.floor(s/3600))}:${pad(Math.floor((s%3600)/60))}:${pad(s%60)}`; };
+  const fmtT  = ts      => { const d=new Date(ts); return `${pad(d.getHours())}:${pad(d.getMinutes())}`; };
+
+  let toastTimer = null;
+  function showToast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
+  }
+
+  function startTimer(type) {
+    const now = Date.now();
+    const newDuration = DUR[type].hours * 3600000;
+    const existing = load();
+    let startTs, endTs, effectiveType;
+    if (existing && (existing.endTs - now) > newDuration) {
+      startTs = existing.startTs;
+      endTs   = existing.endTs;
+      effectiveType = existing.type;
+      showToast('הספירה ממשיכה מהבקר, אין צורך לאפס');
+    } else {
+      startTs = now;
+      endTs   = now + newDuration;
+      effectiveType = type;
+    }
+    save(effectiveType, startTs, endTs);
+    enterTimer();
+  }
+  function enterTimer() {
+    const d=load(); if(!d){show('home');return;}
+    E.mtl.textContent=DUR[d.type].label;
+    E.et.textContent=fmtT(d.endTs);
+    show('timer'); stopTick(); tick(); iv=setInterval(tick,1000);
+  }
+  function stopTick() { if(iv){clearInterval(iv);iv=null;} }
+  function tick() {
+    const d=load(); if(!d){stopTick();show('home');return;}
+    const rem=d.endTs-Date.now();
+    if(rem<=0){stopTick();clear();show('done');return;}
+    E.cd.textContent=fmtD(rem);
+    E.pf.style.width=Math.min(100,((Date.now()-d.startTs)/(d.endTs-d.startTs))*100)+'%';
+  }
+
+  document.querySelectorAll('.btn[data-type],.mini-btn[data-type]').forEach(b=>b.addEventListener('click',()=>startTimer(b.dataset.type)));
+  document.getElementById('back-home').addEventListener('click',()=>show('home'));
+
+  const ov=document.getElementById('confirm-overlay');
+  document.getElementById('cancel-btn').addEventListener('click',()=>ov.classList.remove('hidden'));
+  document.getElementById('confirm-keep').addEventListener('click',()=>ov.classList.add('hidden'));
+  document.getElementById('confirm-cancel').addEventListener('click',()=>{ ov.classList.add('hidden'); stopTick(); clear(); show('home'); });
+  ov.addEventListener('click',e=>{ if(e.target===ov)ov.classList.add('hidden'); });
+
+  document.addEventListener('visibilitychange',()=>{
+    if(!document.hidden){
+      const d=load();
+      if(d){
+        if(Date.now()>=d.endTs){stopTick();clear();show('done');}
+        else if(!S.timer.classList.contains('hidden'))tick();
+        else if(!S.home.classList.contains('hidden'))enterTimer();
+      }
+    }
+  });
+
+  (()=>{ const d=load(); if(d){if(Date.now()>=d.endTs){clear();show('done');}else enterTimer();}else show('home'); })();
+</script>
+</body>
+</html>
