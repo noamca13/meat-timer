@@ -76,9 +76,7 @@
     padding-bottom: max(20px, env(safe-area-inset-bottom));
   }
 
-  /* HEADER */
   .header { text-align: center; padding-bottom: 6px; }
-
   .magen-wrap {
     display: flex; align-items: center; justify-content: center;
     gap: 16px; margin-bottom: 14px;
@@ -88,11 +86,9 @@
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
   .magen-wrap svg { width: 32px; height: 32px; color: var(--gold); }
-
   .title {
     font-family: 'Frank Ruhl Libre', serif;
-    font-size: 30px; font-weight: 500;
-    color: var(--text1);
+    font-size: 30px; font-weight: 500; color: var(--text1);
     letter-spacing: 0.02em; line-height: 1.15;
   }
   .subtitle {
@@ -101,7 +97,6 @@
     color: var(--text2); margin-top: 5px; letter-spacing: 0.07em;
   }
 
-  /* SCREENS */
   .screen {
     flex: 1; display: flex; flex-direction: column;
     justify-content: center; align-items: center;
@@ -113,7 +108,6 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* HOME */
   .home-prompt {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 22px; color: var(--text1);
@@ -122,14 +116,10 @@
   .buttons { display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 340px; }
 
   .btn {
-    position: relative;
-    background: var(--card);
-    border: 1px solid var(--goldf);
-    border-radius: 18px; padding: 22px 26px;
-    cursor: pointer;
-    box-shadow: 0 3px 16px var(--shadow);
-    transition: transform 0.16s ease, box-shadow 0.16s ease;
-    overflow: hidden;
+    position: relative; background: var(--card);
+    border: 1px solid var(--goldf); border-radius: 18px; padding: 22px 26px;
+    cursor: pointer; box-shadow: 0 3px 16px var(--shadow);
+    transition: transform 0.16s ease, box-shadow 0.16s ease; overflow: hidden;
   }
   .btn::after {
     content: ''; position: absolute;
@@ -137,20 +127,12 @@
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
   }
   .btn:active { transform: scale(0.97); box-shadow: 0 1px 6px var(--shadow); }
-
   .btn-content { display: flex; align-items: center; justify-content: center; gap: 16px; }
   .btn-icon { font-size: 34px; line-height: 1; }
   .btn-text { display: flex; flex-direction: column; align-items: flex-start; }
-  .btn-label {
-    font-family: 'Frank Ruhl Libre', serif;
-    font-size: 23px; font-weight: 500; color: var(--text1); line-height: 1.2;
-  }
-  .btn-hours {
-    font-family: 'Heebo', sans-serif;
-    font-size: 12px; color: var(--text2); letter-spacing: 0.07em; margin-top: 3px;
-  }
+  .btn-label { font-family: 'Frank Ruhl Libre', serif; font-size: 23px; font-weight: 500; color: var(--text1); line-height: 1.2; }
+  .btn-hours { font-family: 'Heebo', sans-serif; font-size: 12px; color: var(--text2); letter-spacing: 0.07em; margin-top: 3px; }
 
-  /* TIMER */
   .timer-label {
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 15px; color: var(--text2);
@@ -159,10 +141,9 @@
   .timer-label .meat-type { color: var(--text1); font-weight: 500; }
 
   .countdown-frame {
-    position: relative;
-    background: var(--card);
-    border: 1px solid var(--goldf);
-    border-radius: 22px; padding: 30px 44px 26px; margin-bottom: 16px;
+    position: relative; background: var(--card);
+    border: 1px solid var(--goldf); border-radius: 22px;
+    padding: 30px 44px 26px; margin-bottom: 16px;
     box-shadow: 0 4px 22px var(--shadow);
   }
   .countdown-frame::before {
@@ -170,7 +151,6 @@
     border: 1px solid rgba(201,148,42,0.2);
     border-radius: 15px; pointer-events: none;
   }
-
   .countdown {
     font-family: 'Courier New', Courier, monospace;
     font-size: 62px; font-weight: 400; color: var(--text1);
@@ -181,8 +161,7 @@
   .countdown-unit { font-family: 'Heebo', sans-serif; font-size: 10px; color: var(--text2); letter-spacing: 0.18em; }
 
   .end-time-card {
-    background: var(--card);
-    border: 1px solid var(--goldf);
+    background: var(--card); border: 1px solid var(--goldf);
     border-radius: 16px; padding: 13px 28px;
     text-align: center; margin-bottom: 20px;
     box-shadow: 0 2px 10px var(--shadow);
@@ -202,37 +181,27 @@
     border-radius: 2px; width: 0%;
   }
 
-  /* TOAST */
   .toast {
-    position: fixed;
-    top: 50%; left: 50%;
+    position: fixed; top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    background: var(--text1);
-    border: 1px solid var(--text1);
-    border-radius: 14px;
-    padding: 16px 24px;
+    background: var(--text1); border: 1px solid var(--text1);
+    border-radius: 14px; padding: 16px 24px;
     font-family: 'Frank Ruhl Libre', serif;
     font-size: 15px; color: var(--card);
-    letter-spacing: 0.03em;
-    text-align: center;
-    max-width: 280px;
-    box-shadow: 0 8px 32px var(--shadow);
-    z-index: 200;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
+    letter-spacing: 0.03em; text-align: center;
+    max-width: 280px; box-shadow: 0 8px 32px var(--shadow);
+    z-index: 200; opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
   }
   .toast.show { opacity: 1; }
 
   .restart-hint { font-family: 'Frank Ruhl Libre', serif; font-size: 13px; color: var(--text2); letter-spacing: 0.04em; margin-bottom: 10px; }
   .mini-buttons { display: flex; gap: 10px; width: 100%; max-width: 300px; }
   .mini-btn {
-    flex: 1; background: var(--card);
-    border: 1px solid var(--goldf); border-radius: 14px;
-    padding: 12px 8px; font-family: 'Frank Ruhl Libre', serif;
-    font-size: 15px; color: var(--text1); cursor: pointer;
-    box-shadow: 0 2px 8px var(--shadow); transition: transform 0.15s ease;
-    letter-spacing: 0.02em;
+    flex: 1; background: var(--card); border: 1px solid var(--goldf);
+    border-radius: 14px; padding: 12px 8px;
+    font-family: 'Frank Ruhl Libre', serif; font-size: 15px; color: var(--text1);
+    cursor: pointer; box-shadow: 0 2px 8px var(--shadow);
+    transition: transform 0.15s ease; letter-spacing: 0.02em;
   }
   .mini-btn:active { transform: scale(0.96); }
   .mini-btn .mini-icon { font-size: 16px; margin-left: 5px; }
@@ -249,7 +218,6 @@
   .cancel-btn:active { opacity: 1; }
   .cancel-x { font-size: 13px; color: var(--red); }
 
-  /* CONFIRM */
   .confirm-overlay {
     position: fixed; inset: 0;
     background: rgba(0,0,0,0.55); backdrop-filter: blur(8px);
@@ -276,13 +244,12 @@
   .confirm-btn.cancel { background: var(--red); border: 1px solid var(--red); color: var(--text1); }
   .confirm-btn:active { transform: scale(0.96); }
 
-  /* DONE */
-  .done-screen { text-align: center; }
+  .done-screen { text-align: center; display: flex; flex-direction: column; align-items: center; }
   .done-emojis { font-size: 70px; letter-spacing: 10px; margin-bottom: 24px; animation: bob 2.2s ease-in-out infinite; }
   @keyframes bob { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);} }
   .done-title { font-family: 'Frank Ruhl Libre', serif; font-size: 52px; font-weight: 500; color: var(--text1); margin-bottom: 10px; }
-  .done-subtitle { font-family: 'Frank Ruhl Libre', serif; font-size: 18px; font-weight: 300; font-style: italic; color: var(--text2); margin-bottom: 44px; }
-  .done-actions { width: 100%; max-width: 300px; }
+  .done-subtitle { font-family: 'Frank Ruhl Libre', serif; font-size: 18px; font-weight: 300; font-style: italic; color: var(--text2); margin-bottom: 24px; }
+  .done-actions { width: 100%; max-width: 300px; margin-top: 20px; }
   .done-btn {
     background: var(--card); color: var(--text1);
     border: 1px solid var(--goldf); border-radius: 18px;
@@ -313,7 +280,6 @@
   <div class="header">
     <div class="magen-wrap">
       <div class="hline"></div>
-      <!-- Perfect Star of David: two equilateral triangles inscribed in circle r=26, center (30,30) -->
       <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true">
         <polygon points="30.0,4.0 52.5,43.0 7.5,43.0"/>
         <polygon points="30.0,56.0 7.5,17.0 52.5,17.0"/>
@@ -322,7 +288,6 @@
     </div>
     <h1 class="title">המתנת בשר - חלב</h1>
     <p class="subtitle">חישוב זמן ההמתנה בקלות</p>
-
   </div>
 
   <div id="home-screen" class="screen">
@@ -383,6 +348,10 @@
     <div class="done-emojis">🧀 🥛</div>
     <h2 class="done-title">בתיאבון!</h2>
     <p class="done-subtitle">אפשר לאכול חלבי</p>
+    <div class="end-time-card">
+      <div class="end-time-label">הספירה החלה ב-</div>
+      <div class="end-time-value" id="done-start-time">--:--</div>
+    </div>
     <div class="done-actions">
       <button class="done-btn" id="back-home">חזרה למסך הראשי</button>
     </div>
@@ -413,10 +382,10 @@
     done:  document.getElementById('done-screen')
   };
   const E = {
-    cd:    document.getElementById('countdown'),
-    et:    document.getElementById('end-time'),
-    mtl:   document.getElementById('meat-type-label'),
-    pf:    document.getElementById('progress-fill')
+    cd:  document.getElementById('countdown'),
+    et:  document.getElementById('end-time'),
+    mtl: document.getElementById('meat-type-label'),
+    pf:  document.getElementById('progress-fill')
   };
   let iv = null;
 
@@ -455,6 +424,7 @@
     save(effectiveType, startTs, endTs);
     enterTimer();
   }
+
   function enterTimer() {
     const d=load(); if(!d){show('home');return;}
     E.mtl.textContent=DUR[d.type].label;
@@ -465,7 +435,15 @@
   function tick() {
     const d=load(); if(!d){stopTick();show('home');return;}
     const rem=d.endTs-Date.now();
-    if(rem<=0){stopTick();clear();show('done');return;}
+    if(rem<=0){
+      stopTick();
+      const startTs=d.startTs;
+      clear();
+      const el=document.getElementById('done-start-time');
+      if(el) el.textContent=fmtT(startTs);
+      show('done');
+      return;
+    }
     E.cd.textContent=fmtD(rem);
     E.pf.style.width=Math.min(100,((Date.now()-d.startTs)/(d.endTs-d.startTs))*100)+'%';
   }
@@ -490,7 +468,15 @@
     }
   });
 
-  (()=>{ const d=load(); if(d){if(Date.now()>=d.endTs){clear();show('done');}else enterTimer();}else show('home'); })();
+  // Siri Shortcuts: ?type=beef or ?type=chicken
+  (()=>{
+    const params=new URLSearchParams(window.location.search);
+    const urlType=params.get('type');
+    if(urlType && DUR[urlType]){ startTimer(urlType); return; }
+    const d=load();
+    if(d){if(Date.now()>=d.endTs){clear();show('done');}else enterTimer();}
+    else show('home');
+  })();
 </script>
 </body>
 </html>
